@@ -5,7 +5,7 @@ vector createVector(const size_t n) {
     if (n == 0)
         v.data = NULL;
     else if (v.data == NULL) {
-        fprintf(stderr, "crash test ");
+        fprintf(stderr, "bad alloc ");
         exit(1);
     }
     return v;
@@ -16,7 +16,7 @@ void reserve(vector *v, const size_t newCapacity) {
     if (newCapacity == 0)
         v->data = NULL;
     else if (v->data == NULL) {
-        fprintf(stderr, "crash test ");
+        fprintf(stderr, "bad alloc  ");
         exit(1);
     } else {
         v->capacity = newCapacity;
@@ -26,6 +26,10 @@ void reserve(vector *v, const size_t newCapacity) {
 
 void clear(vector *v) {
     v->size = 0;
+}
+
+void shrinkToFit(vector *v) {
+    reserve(v, v->size);
 }
 
 void deleteVector(vector *v) {
@@ -61,10 +65,33 @@ void pushBack(vector *v, const int x){
 
 void popBack(vector *v){
     if(isEmpty(v)){
-        fprintf(stderr,"crash test ");
+        fprintf(stderr,"bad alloc ");
         exit (1);
     }else{
         v->size--;
     }
 
+}
+
+int *atVector(const vector *v, const size_t index) {
+    if (index < 0 || index >= v->size || isEmpty(v)) {
+        fprintf(stderr, "Error: a[%zu] is not exists", index);
+        exit(1);
+    }
+    return v->data + index;
+}
+
+int *back(const vector *v) {
+    if (isEmpty(v)) {
+        fprintf(stderr, "Error: vector is empty");
+        exit(1);
+    }
+    return &(v->data[v->size - 1]);
+}
+int *front(const vector *v) {
+    if (isEmpty(v)) {
+        fprintf(stderr, "Error: vector is empty");
+        exit(1);
+    }
+    return &(v->data[0]);
 }

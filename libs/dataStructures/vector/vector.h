@@ -19,11 +19,15 @@ typedef struct vector {
 vector createVector(const size_t n);
 void reserve(vector *v, const size_t newCapacity);
 void clear(vector *v);
+void shrinkToFit(vector *v);
 void deleteVector(vector *v);
 bool isEmpty(const vector *v);
 bool isFull(const vector *v);
 int getVectorValue(const vector *v, const size_t i);
 void pushBack(vector *v, const int x);
 void popBack(vector *v);
+int *atVector(const vector *v, const size_t index);
+int *back(const vector *v);
+int *front(const vector *v);
 
 #endif //LABA14_VECTOR_H
