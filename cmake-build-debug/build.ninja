@@ -46,11 +46,11 @@ cmake_ninja_workdir = /Users/user/Documents/CLion/laba14/cmake-build-debug/
 
 build cmake_object_order_depends_target_laba14: phony || CMakeFiles/laba14.dir
 
-build CMakeFiles/laba14.dir/main.c.o: C_COMPILER__laba14_Debug /Users/user/Documents/CLion/laba14/main.c || cmake_object_order_depends_target_laba14
-  DEP_FILE = CMakeFiles/laba14.dir/main.c.o.d
+build CMakeFiles/laba14.dir/libs/dataStructures/vector/main.c.o: C_COMPILER__laba14_Debug /Users/user/Documents/CLion/laba14/libs/dataStructures/vector/main.c || cmake_object_order_depends_target_laba14
+  DEP_FILE = CMakeFiles/laba14.dir/libs/dataStructures/vector/main.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk -std=gnu2x
   OBJECT_DIR = CMakeFiles/laba14.dir
-  OBJECT_FILE_DIR = CMakeFiles/laba14.dir
+  OBJECT_FILE_DIR = CMakeFiles/laba14.dir/libs/dataStructures/vector
 
 build CMakeFiles/laba14.dir/libs/dataStructures/vector/vector.c.o: C_COMPILER__laba14_Debug /Users/user/Documents/CLion/laba14/libs/dataStructures/vector/vector.c || cmake_object_order_depends_target_laba14
   DEP_FILE = CMakeFiles/laba14.dir/libs/dataStructures/vector/vector.c.o.d
@@ -66,7 +66,7 @@ build CMakeFiles/laba14.dir/libs/dataStructures/vector/vector.c.o: C_COMPILER__l
 #############################################
 # Link the executable laba14
 
-build laba14: C_EXECUTABLE_LINKER__laba14_Debug CMakeFiles/laba14.dir/main.c.o CMakeFiles/laba14.dir/libs/dataStructures/vector/vector.c.o
+build laba14: C_EXECUTABLE_LINKER__laba14_Debug CMakeFiles/laba14.dir/libs/dataStructures/vector/main.c.o CMakeFiles/laba14.dir/libs/dataStructures/vector/vector.c.o
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk
   OBJECT_DIR = CMakeFiles/laba14.dir
   POST_BUILD = :
