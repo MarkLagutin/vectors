@@ -5,7 +5,7 @@ vector createVector(const size_t n) {
     if (n == 0)
         v.data = NULL;
     else if (v.data == NULL) {
-        fprintf(stderr, "bad alloc ");
+        fprintf(stderr, "crash test ");
         exit(1);
     }
     return v;
@@ -16,7 +16,7 @@ void reserve(vector *v, const size_t newCapacity) {
     if (newCapacity == 0)
         v->data = NULL;
     else if (v->data == NULL) {
-        fprintf(stderr, "bad alloc ");
+        fprintf(stderr, "crash test ");
         exit(1);
     } else {
         v->capacity = newCapacity;
@@ -33,4 +33,38 @@ void deleteVector(vector *v) {
     v->data = NULL;
     v->size = 0;
     v->capacity = 0;
+}
+
+bool isEmpty(const vector *v) {
+    return v->size == 0;
+}
+
+bool isFull(const vector *v) {
+    return v->size == v->capacity;
+}
+
+int getVectorValue(const vector *v, const size_t i) {
+    return *(v->data + i);
+}
+
+void pushBack(vector *v, const int x){
+    if(v -> capacity == 0){
+        v->capacity++;
+        reserve(v, v->capacity);
+    }else if(isFull(v)){
+        reserve(v, 2 * v ->capacity);
+    }
+
+    v ->data[v->size] = x;
+    v->size++;
+}
+
+void popBack(vector *v){
+    if(isEmpty(v)){
+        fprintf(stderr,"crash test ");
+        exit (1);
+    }else{
+        v->size--;
+    }
+
 }
